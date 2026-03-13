@@ -2,23 +2,16 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className='py-12 bg-white border-t border-gray-100'>
-        <div className='max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center justify-center gap-6'>
-            <h2 className='text-3xl font-black tracking-tighter text-gray-900'>
-                BLACK ARO.
-            </h2>
-            <div className='flex items-center gap-4 text-sm font-medium text-gray-400'>
-                <p>Arbaz Ali © 2026</p>
-                <span className='w-1.5 h-1.5 bg-gray-300 rounded-full'></span>
-                <a 
-                    href="https://arbazali.framer.website" 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className='hover:text-gray-900 transition-colors duration-300'
-                >
-                    arbazali.framer.website
-                </a>
-            </div>
+    <footer className='bg-[#030303] pt-20 pb-10 px-8 border-t border-white/5'>
+        <div className='text-center mb-20'>
+            <h1 className='text-[12vw] font-black text-white/5 tracking-tighter leading-none select-none'>
+                BLACK ARO
+            </h1>
+        </div>
+        <div className='flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-[0.3em]'>
+            <p>Built with Passion</p>
+            <p>© 2026 All Rights Reserved</p>
+            <a href="#" className='hover:text-white'>Framer Portfolio</a>
         </div>
     </footer>
   )

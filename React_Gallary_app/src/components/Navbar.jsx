@@ -3,33 +3,25 @@ import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
-    <div className='fixed top-6 w-full flex justify-center z-50 px-4'>
-        <motion.nav 
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className='bg-white/70 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-full px-8 py-3 flex justify-between items-center gap-10 md:gap-24'
+    <nav className='fixed top-0 w-full z-50 flex justify-between items-center px-8 md:px-16 py-6 bg-[#030303]/80 backdrop-blur-md border-b border-white/5'>
+        <motion.h1 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className='text-xl font-bold tracking-[0.3em] text-white italic'
         >
-            <h1 className='text-xl font-black tracking-tighter text-gray-900'>
-                BLACK ARO.
-            </h1>
+            ARO<span className='text-blue-500'>.</span>
+        </motion.h1>
 
-            <div className='flex gap-6 md:gap-8 text-sm font-semibold text-gray-500'>
-                {['Home', 'Gallery', 'Contact'].map((item, i) => (
-                    <motion.a 
-                        key={item}
-                        href="#"
-                        whileHover={{ scale: 1.05, color: "#111827" }}
-                        className='transition-colors duration-300 relative group'
-                    >
-                        {item}
-                        {/* Hover Underline Animation */}
-                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
-                    </motion.a>
-                ))}
-            </div>
-        </motion.nav>
-    </div>
+        <div className='hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] text-gray-400 font-light'>
+            {['Work', 'Gallery', 'Info'].map((item) => (
+                <a key={item} href="#" className='hover:text-white transition-all duration-500'>{item}</a>
+            ))}
+        </div>
+
+        <button className='text-white bg-white/5 hover:bg-white text-[10px] uppercase tracking-widest px-6 py-2 border border-white/10 rounded-full transition-all duration-700 hover:text-black'>
+            Contact
+        </button>
+    </nav>
   )
 }
 

@@ -6,38 +6,26 @@ const Card = ({ item }) => {
     
     return (
         <motion.div 
-            whileHover={{ y: -10 }}
-            className='group bg-white rounded-[2rem] p-3 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-pointer border border-gray-100'
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className='group relative aspect-[4/5] bg-[#0a0a0a] border border-white/5 overflow-hidden p-4'
         >
-            <div className='w-full h-64 md:h-80 overflow-hidden rounded-[1.5rem]'>
+            {/* Image Container */}
+            <div className='relative w-full h-full overflow-hidden'>
                 <img 
-                    className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' 
+                    className='w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100' 
                     src={download_url} 
-                    loading="lazy"
                     alt={author} 
                 />
-            </div>
-
-            <div className='px-4 py-5 flex justify-between items-center'>
-                <div>
-                    <h1 className='text-gray-900 text-lg font-bold tracking-tight'>
-                        {author}
-                    </h1>
-                    <p className='text-sm text-gray-400 font-medium mt-0.5'>
-                        Original Capture
-                    </p>
-                </div>
                 
-                {/* Small floating action button inside card */}
-                <motion.button 
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className='w-10 h-10 rounded-full bg-gray-50 flex justify-center items-center text-gray-600 group-hover:bg-gray-900 group-hover:text-white transition-colors duration-300'
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
-                </motion.button>
+                {/* Overlay Text */}
+                <div className='absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-6'>
+                    <p className='text-white text-[10px] uppercase tracking-[0.3em] mb-2 overflow-hidden'>
+                        Shot by {author}
+                    </p>
+                    <div className='h-[1px] w-0 group-hover:w-full bg-white transition-all duration-700'></div>
+                </div>
             </div>
         </motion.div>
     )
